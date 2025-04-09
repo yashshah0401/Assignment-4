@@ -1,61 +1,36 @@
-# SENG8120 Modern Automated Testing 
+# Assignment 4 – Paint Area Calculator
 
-Version: Alpaca
+## Course
+**SENG8120 - Modern Automated Testing** Conestoga College — Winter 2025
 
-## Purpose
+## Overview
+This project will solves a problem involving a modernistic painting made up of:
+- A rectangle
+- Three triangles at the bottom (each triangle has a base = 1/3 of the rectangle’s width)
 
-This repository houses the code we require for examples and assignments.
+The goal is to calculate how much paint is required for a given number of artwork copies.
 
-## Repository Usage
+## Logic Used
 
-This repository will contain branches of code.
+For a single painting:
+- **Rectangle area** = `width × height`
+- **Each triangle area** = `0.5 × (width / 3) × height`
+- **Total per painting** = `rectangle area + 3 × triangle area`
+- **Total paint needed** = `total per painting × number of copies`
 
-Please refer to your instructor's directions on how to use this repository.
+## Tech Stack
+- **TypeScript**
+- **Jest** for Unit Testing
+- **TDD** (Test-Driven Development)
+- Modular architecture (`src/paintCalculator`)
 
-## Branch Usage
+## Example
 
-**Installing The Dependencies**
+For 1 copy of a 3m x 2m painting:
+- Rectangle = `3 × 2 = 6`
+- Triangle = `0.5 × 1 × 2 = 1`
+- Total = `6 + 3 × 1 = 9 m²`
 
-You will need to install dependencies by using:
-
-```bash
-npm install
-```
-
-**Running The Project**
-
-To run the project, you must first build the project:
-
-```bash
-npm run build
-```
-
-followed by:
-
-```bash
-npm start
-```
-
-Note:  if you make a change in the production code, you must `build` & `start`.
-Otherwise, your changes will not be reflected.
-
-**Running The Tests**
-
-To run the tests, you can use
-
-```bash
-npm run test
-```
-
-To keep the tests running, you can use
-
-```bash
-npm run test -- --watch
-```
-
-To run a specific test, you can use
-
-```bash
-npm run test [my test name]
-```
-
+```ts
+calculatePaintNeeded(3, 2, 1); // 9
+calculatePaintNeeded(3, 2, 5000); // 45000
