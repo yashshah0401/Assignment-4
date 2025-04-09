@@ -18,4 +18,10 @@ test("should calculate paint for 5000 copies of 3x2m", () => {
     const result = calculatePaintNeeded(3, 2, 0);
     expect(result).toBe(0);
   });
+
+  test("should return NaN for negative width, height, or copies", () => {
+    expect(calculatePaintNeeded(-3, 2, 1)).toBeNaN();
+    expect(calculatePaintNeeded(3, -2, 1)).toBeNaN();
+    expect(calculatePaintNeeded(3, 2, -1)).toBeNaN();
+  });
 });
