@@ -24,4 +24,14 @@ test("should calculate paint for 5000 copies of 3x2m", () => {
     expect(calculatePaintNeeded(3, -2, 1)).toBeNaN();
     expect(calculatePaintNeeded(3, 2, -1)).toBeNaN();
   });
+
+  test("should return 0 when width or height is 0", () => {
+    expect(calculatePaintNeeded(0, 2, 10)).toBe(0);
+    expect(calculatePaintNeeded(3, 0, 10)).toBe(0);
+  });
+
+  test("should handle decimal width and height correctly", () => {
+    const result = calculatePaintNeeded(2.5, 1.75, 2);
+    expect(result).toBeCloseTo(13.125, 3);
+  });
 });
